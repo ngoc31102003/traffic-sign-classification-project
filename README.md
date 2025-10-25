@@ -1,271 +1,242 @@
-# 🚦 Traffic Sign Recognition Project
+<h1 align="center">
+  <br>
+  🚦 Traffic Sign Recognition System
+  <br>
+</h1>
 
-A deep learning project for classifying **Vietnamese traffic signs** using **PyTorch**.  
-This project includes a complete pipeline from data preprocessing to web deployment.
+<h4 align="center">A deep learning-based traffic sign detection and classification system for Vietnamese roads</h4>
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![PyTorch](https://img.shields.io/badge/PyTorch-1.9%2B-orange)
-![Flask](https://img.shields.io/badge/Flask-2.0%2B-lightgrey)
-![License](https://img.shields.io/badge/License-MIT-green)
+<p align="center">
+  <a href="#">
+    <img src="https://img.shields.io/badge/Python-3.8%2B-blue" alt="Python">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/PyTorch-1.9%2B-orange" alt="PyTorch">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Flask-2.0%2B-lightgrey" alt="Flask">
+  </a>
+  <a href="#">
+    <img src="https://img.shields.io/badge/Accuracy-95%25-brightgreen" alt="Accuracy">
+  </a>
+</p>
 
----
+<p align="center">
+  <a href="#overview">Overview</a> •
+  <a href="#features">Features</a> •
+  <a href="#results">Results</a> •
+  <a href="#demo">Demo</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#team">Team</a>
+</p>
 
-## 📋 Project Overview
+## Overview
 
-This project implements a convolutional neural network (CNN) to classify Vietnamese traffic signs into 5 categories:
+This project implements a **real-time traffic sign recognition system** using deep learning with PyTorch. The system classifies Vietnamese traffic signs into 5 categories with high accuracy and provides a user-friendly web interface for predictions.
+
+**Traffic Sign Categories:**
 - **Cam** - Prohibition signs
 - **Chidan** - Direction signs  
 - **Hieulenh** - Command signs
 - **Nguyhiem** - Danger warning signs
 - **Phu** - Supplementary signs
 
----
+## Features
 
-## 🎯 Features
+### Core Capabilities
+- **High Accuracy**: 95%+ accuracy on test set
+- **Real-time Prediction**: Fast inference with optimized model
+- **Web Interface**: Beautiful Flask web application
+- **Comprehensive Evaluation**: Detailed metrics and visualization
 
-- ✅ **Complete ML Pipeline**: Data preprocessing, model training, evaluation, and deployment  
-- 🌐 **Web Interface**: User-friendly Flask app for real-time predictions  
-- 📊 **Model Monitoring**: TensorBoard integration for training visualization  
-- 📈 **Comprehensive Evaluation**: Metrics and confusion matrix analysis  
-- 🧩 **Production Ready**: Structured code with error handling and logging  
+### Technical Features
+- **Custom CNN Architecture**: Optimized for traffic sign recognition
+- **Data Augmentation**: Advanced preprocessing pipeline
+- **TensorBoard Integration**: Real-time training monitoring
+- **Model Checkpoints**: Automatic saving of best models
+- **Production Ready**: Well-structured, documented code
 
----
+## 📊 Training Results
 
-## 📁 Project Structure
+### Accuracy and Loss Curves
+<p align="center">
+  <img src="image_results_final/accuracy_curve.png" width="45%" alt="Training Accuracy">
+  <img src="image_results_final/loss_curve.png" width="45%" alt="Training Loss">
+</p>
 
+### Confusion Matrix
+<p align="center">
+  <img src="image_results_final/confusion_matrix.png" width="60%" alt="Confusion Matrix">
+</p>
 
+### Performance Metrics
+<p align="center">
+  <img src="image_results_final/metrics_summary.png" width="70%" alt="Performance Metrics">
+</p>
 
-traffic_sign_project/
-├── data/ # CSV annotations
-│ ├── train.csv
-│ ├── valid.csv
-│ └── test.csv
-├── dataset/ # Image datasets
-│ ├── train/
-│ ├── valid/
-│ └── test/
-├── models/ # Trained models
-│ ├── best_model.pth
-│ └── last_model.pth
-├── runs/ # TensorBoard logs
-├── data_loader.py # Custom dataset and data loading
-├── data_preprocessor.py # Data preprocessing utilities
-├── model.py # CNN model architecture
-├── train.py # Training script
-├── evaluate.py # Model evaluation and metrics
-├── web_demo.py # Flask web application
-├── requirements.txt # Dependencies
-└── confusion_matrix.png # Evaluation results
+### Demo Interface
+<p align="center" style="display: flex; justify-content: center; gap: 20px;">
+  <img src="image_results_final/web_demo_1.png" style="width: 80%; height: auto;" alt="Web Demo 1">
+  <img src="image_results_final/web_demo_2.png" style="width: 80%; height: auto;" alt="Web Demo 2">
+  <img src="image_results_final/web_demo_3.png" style="width: 80%; height: auto;" alt="Web Demo 3">
+</p>
 
 
----
+<h2>📈 Performance Summary</h2>
 
-## 🚀 Quick Start
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Overall Accuracy</b></td><td><b>95.12%</b></td><td>Tỷ lệ dự đoán chính xác tổng thể</td></tr>
+    <tr><td><b>Precision (Weighted Avg)</b></td><td><b>95.12%</b></td><td>Độ tin cậy trung bình của dự đoán positive</td></tr>
+    <tr><td><b>Recall (Weighted Avg)</b></td><td><b>95.12%</b></td><td>Khả năng phát hiện chính xác các đối tượng</td></tr>
+    <tr><td><b>Macro F1-Score</b></td><td><b>93.3%</b></td><td>Trung bình cân bằng giữa Precision và Recall</td></tr>
+    <tr><td><b>Inference Time</b></td><td>~15ms</td><td>Thời gian xử lý mỗi ảnh</td></tr>
+  </tbody>
+</table>
 
-### 1. Installation
+<hr>
 
+<h3>Per-Class Performance</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Accuracy</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>F1-Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><b>Cam</b></td><td>100.00%</td><td>1.000</td><td>1.000</td><td>1.000</td></tr>
+    <tr><td><b>Chidan</b></td><td>80.00%</td><td>0.800</td><td>0.800</td><td>0.800</td></tr>
+    <tr><td><b>Hieulenh</b></td><td>86.67%</td><td>0.867</td><td>0.867</td><td>0.867</td></tr>
+    <tr><td><b>Nguyhiem</b></td><td>100.00%</td><td>1.000</td><td>1.000</td><td>1.000</td></tr>
+    <tr><td><b>Phu</b></td><td>100.00%</td><td>1.000</td><td>1.000</td><td>1.000</td></tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h3>Misclassification Analysis</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>True Label</th>
+      <th>Predicted Label</th>
+      <th>Confidence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>Chidan</td><td>Hieulenh</td><td>0.804</td></tr>
+    <tr><td>2</td><td>Hieulenh</td><td>Chidan</td><td>0.721</td></tr>
+    <tr><td>3</td><td>Chidan</td><td>Hieulenh</td><td>0.578</td></tr>
+    <tr><td>4</td><td>Hieulenh</td><td>Chidan</td><td>0.542</td></tr>
+  </tbody>
+</table>
+
+<p><b>Số mẫu sai:</b> 4 / 82<br>
+<b>Tổng số mẫu kiểm thử:</b> 82</p>
+
+<hr>
+
+<h2>🛠 Installation</h2>
+
+<h3>Prerequisites</h3>
+<ul>
+  <li>Python 3.8+</li>
+  <li>PyTorch 1.9+</li>
+  <li>Flask 2.0+</li>
+</ul>
+
+<h3>Run Evaluation Example</h3>
+
+<pre><code>python evaluate.py
+</code></pre>
+
+<p><b>Kết quả ví dụ:</b></p>
+
+<pre><code>Using device: cuda
+Loaded model from 'model_state'
+Test samples: 82
+Overall Test Accuracy: 95.12%
+</code></pre>
+
+
+## 🛠 Installation
+
+### Prerequisites
+- Python 3.8+
+- PyTorch 1.9+
+- Flask 2.0+
+
+### Quick Start
 ```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/your-username/traffic-sign-recognition.git
 cd traffic-sign-recognition
 
 # Install dependencies
 pip install -r requirements.txt
 
-2. Data Preparation
-
-Organize your dataset in the following structure:
-
-dataset/
-├── train/
-│   ├── Cam/
-│   ├── Chidan/
-│   ├── Hieulenh/
-│   ├── Nguyhiem/
-│   └── Phu/
-├── valid/
-└── test/
-
-
-Generate CSV annotations:
-
+# Run data preprocessing
 python data_preprocessor.py
 
-3. Training
 # Start training
+python train.py
+💻 Usage
+Training the Model
+bash
+# Basic training
 python train.py
 
 # Resume training from checkpoint
 python train.py --resume
 
-# Monitor training with TensorBoard
+# Monitor with TensorBoard
 tensorboard --logdir runs --port 6006
-
-
-📉 Training & Validation Curves
-
-Training Loss	Validation Accuracy
-
-	
-4. Evaluation
+Evaluation
+bash
 # Evaluate model performance
 python evaluate.py
-
-
-📊 Confusion Matrix:
-
-5. Web Demo
-# Start the web application
+Web Application
+bash
+# Start Flask web server
 python web_demo.py
 
-
-Open http://localhost:5000
- in your browser.
-
-🧠 Example Test Results:
-
-Uploaded Image	Model Prediction
-
-	🚫 Cam (Prohibition Sign)
-
-	🟢 Hieulenh (Command Sign)
-🏗️ Model Architecture
-
-The project uses a custom CNN architecture:
-
-3 Convolutional Blocks (Conv → BatchNorm → ReLU → Dropout)
-
-Adaptive Average Pooling for flexible input sizes
-
-2 Fully Connected Layers for classification
-
-Optimizer: Adam with Cosine Annealing Scheduler
-
-Loss: Cross Entropy Loss
-
-📊 Performance Metrics
-Metric	Value
-Overall Accuracy	~95%
-Macro F1-score	~0.94
-Weighted F1-score	~0.95
-Precision	~0.94
-Recall	~0.94
-
-Per-class Performance:
-
-Cam: ~96%
-
-Chidan: ~94%
-
-Hieulenh: ~93%
-
-Nguyhiem: ~95%
-
-Phu: ~94%
-
-🌐 Web Interface
-
-The Flask web application provides:
-
-📤 Drag & Drop image upload
-
-⚡ Real-time predictions with confidence scores
-
-📈 Interactive probability charts
-
-💎 Responsive design with glass-morphism UI
-
-📘 Detailed class descriptions
-
-Example:
-
-🛠️ Technical Details
-Dependencies
-
-PyTorch 1.9+
-
-TorchVision
-
-Flask
-
-Pillow
-
-Scikit-learn
-
-Pandas
-
-Matplotlib / Seaborn
-
-Data Augmentation
-
-Random Rotation (±10°)
-
-Random Horizontal Flip (30%)
-
-Color Jitter (brightness, contrast, saturation)
-
-Normalization (ImageNet mean/std)
-
-Training Configuration
-Parameter	Value
-Batch Size	16
-Learning Rate	0.001
-Epochs	30
-Optimizer	Adam
-Scheduler	Cosine Annealing
-📈 Model Monitoring
-
-The training process is monitored via TensorBoard:
-
-Loss & Accuracy Curves
-
-Learning Rate Scheduling
-
-Model Graph Visualization
-
-Text Summaries per Epoch
-
-Example visualization:
-
-🔧 Customization
-Adding New Classes
-
-Update self.classes in data_preprocessor.py
-
-Modify CLASS_NAMES in web_demo.py and evaluate.py
-
-Retrain the model with updated num_classes
-
-Model Architecture
-
-Modify model.py to experiment with:
-
-Additional layers
-
-BatchNorm/Dropout tuning
-
-Custom classifier heads
-
-🤝 Contributing
-
-Contributions are welcome!
-Feel free to submit pull requests or open issues for:
-
-🐞 Bug fixes
-
-🚀 Performance improvements
-
-✨ New features
-
-🧾 Documentation updates
-
-📄 License
-
-This project is licensed under the MIT License — see the LICENSE file for details.
-
-👨‍💻 Author
-
-Your Name
-📂 GitHub: @your-username
-
-📧 Email: your.email@example.com
+# Access at: http://localhost:5000
+📁 Project Structure
+text
+traffic_sign_project/
+├── 📊 data/                    # Dataset annotations
+│   ├── train.csv
+│   ├── valid.csv
+│   └── test.csv
+├── 🖼️ dataset/                 # Image datasets
+│   ├── train/
+│   ├── valid/
+│   └── test/
+├── 🤖 models/                  # Trained models
+│   ├── best_model.pth
+│   └── last_model.pth
+├── 📈 runs/                    # TensorBoard logs
+├── 📸 image_results/           # Result visualizations
+├── 🔧 src/                     # Source code
+│   ├── data_loader.py
+│   ├── data_preprocessor.py
+│   ├── model.py
+│   ├── train.py
+│   ├── evaluate.py
+│   └── web_demo.py
+└── 📄 requirements.txt
