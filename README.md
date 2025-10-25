@@ -104,29 +104,6 @@ This project implements a **real-time traffic sign recognition system** using de
 
 <hr>
 
-<h3>Per-Class Performance</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Accuracy</th>
-      <th>Precision</th>
-      <th>Recall</th>
-      <th>F1-Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td><b>Cam</b></td><td>100.00%</td><td>1.000</td><td>1.000</td><td>1.000</td></tr>
-    <tr><td><b>Chidan</b></td><td>80.00%</td><td>0.800</td><td>0.800</td><td>0.800</td></tr>
-    <tr><td><b>Hieulenh</b></td><td>86.67%</td><td>0.867</td><td>0.867</td><td>0.867</td></tr>
-    <tr><td><b>Nguyhiem</b></td><td>100.00%</td><td>1.000</td><td>1.000</td><td>1.000</td></tr>
-    <tr><td><b>Phu</b></td><td>100.00%</td><td>1.000</td><td>1.000</td><td>1.000</td></tr>
-  </tbody>
-</table>
-
-<hr>
-
 <h3>Misclassification Analysis</h3>
 
 <table>
