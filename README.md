@@ -1,12 +1,14 @@
-markdown
 # 🚦 Traffic Sign Recognition Project
 
-A deep learning project for classifying Vietnamese traffic signs using PyTorch. This project includes a complete pipeline from data preprocessing to web deployment.
+A deep learning project for classifying **Vietnamese traffic signs** using **PyTorch**.  
+This project includes a complete pipeline from data preprocessing to web deployment.
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-1.9%2B-orange)
 ![Flask](https://img.shields.io/badge/Flask-2.0%2B-lightgrey)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
+---
 
 ## 📋 Project Overview
 
@@ -17,15 +19,22 @@ This project implements a convolutional neural network (CNN) to classify Vietnam
 - **Nguyhiem** - Danger warning signs
 - **Phu** - Supplementary signs
 
+---
+
 ## 🎯 Features
 
-- **Complete ML Pipeline**: Data preprocessing, model training, evaluation, and deployment
-- **Web Interface**: User-friendly Flask web application for real-time predictions
-- **Model Monitoring**: TensorBoard integration for training visualization
-- **Comprehensive Evaluation**: Detailed metrics and confusion matrix analysis
-- **Production Ready**: Well-structured code with error handling and logging
+- ✅ **Complete ML Pipeline**: Data preprocessing, model training, evaluation, and deployment  
+- 🌐 **Web Interface**: User-friendly Flask app for real-time predictions  
+- 📊 **Model Monitoring**: TensorBoard integration for training visualization  
+- 📈 **Comprehensive Evaluation**: Metrics and confusion matrix analysis  
+- 🧩 **Production Ready**: Structured code with error handling and logging  
+
+---
 
 ## 📁 Project Structure
+
+
+
 traffic_sign_project/
 ├── data/ # CSV annotations
 │ ├── train.csv
@@ -42,13 +51,14 @@ traffic_sign_project/
 ├── data_loader.py # Custom dataset and data loading
 ├── data_preprocessor.py # Data preprocessing utilities
 ├── model.py # CNN model architecture
-├── train.py # Training script with TensorBoard
+├── train.py # Training script
 ├── evaluate.py # Model evaluation and metrics
 ├── web_demo.py # Flask web application
 ├── requirements.txt # Dependencies
 └── confusion_matrix.png # Evaluation results
 
-text
+
+---
 
 ## 🚀 Quick Start
 
@@ -61,10 +71,11 @@ cd traffic-sign-recognition
 
 # Install dependencies
 pip install -r requirements.txt
+
 2. Data Preparation
+
 Organize your dataset in the following structure:
 
-text
 dataset/
 ├── train/
 │   ├── Cam/
@@ -74,12 +85,13 @@ dataset/
 │   └── Phu/
 ├── valid/
 └── test/
+
+
 Generate CSV annotations:
 
-bash
 python data_preprocessor.py
+
 3. Training
-bash
 # Start training
 python train.py
 
@@ -88,114 +100,136 @@ python train.py --resume
 
 # Monitor training with TensorBoard
 tensorboard --logdir runs --port 6006
+
+
+📉 Training & Validation Curves
+
+Training Loss	Validation Accuracy
+
+	
 4. Evaluation
-bash
 # Evaluate model performance
 python evaluate.py
+
+
+📊 Confusion Matrix:
+
 5. Web Demo
-bash
 # Start the web application
 python web_demo.py
 
-# Open http://localhost:5000 in your browser
+
+Open http://localhost:5000
+ in your browser.
+
+🧠 Example Test Results:
+
+Uploaded Image	Model Prediction
+
+	🚫 Cam (Prohibition Sign)
+
+	🟢 Hieulenh (Command Sign)
 🏗️ Model Architecture
+
 The project uses a custom CNN architecture:
 
-3 Convolutional Blocks with BatchNorm and Dropout
+3 Convolutional Blocks (Conv → BatchNorm → ReLU → Dropout)
 
 Adaptive Average Pooling for flexible input sizes
 
 2 Fully Connected Layers for classification
 
-Optimizer: Adam with Cosine Annealing scheduler
+Optimizer: Adam with Cosine Annealing Scheduler
 
-Loss Function: Cross Entropy Loss
+Loss: Cross Entropy Loss
 
 📊 Performance Metrics
-The model achieves excellent performance on the test set:
-
 Metric	Value
 Overall Accuracy	~95%
 Macro F1-score	~0.94
 Weighted F1-score	~0.95
 Precision	~0.94
 Recall	~0.94
+
 Per-class Performance:
 
-Cam: ~96% accuracy
+Cam: ~96%
 
-Chidan: ~94% accuracy
+Chidan: ~94%
 
-Hieulenh: ~93% accuracy
+Hieulenh: ~93%
 
-Nguyhiem: ~95% accuracy
+Nguyhiem: ~95%
 
-Phu: ~94% accuracy
+Phu: ~94%
 
 🌐 Web Interface
+
 The Flask web application provides:
 
-Drag & Drop image upload
+📤 Drag & Drop image upload
 
-Real-time predictions with confidence scores
+⚡ Real-time predictions with confidence scores
 
-Interactive probability charts
+📈 Interactive probability charts
 
-Responsive design with glass-morphism UI
+💎 Responsive design with glass-morphism UI
 
-Class descriptions and detailed analysis
+📘 Detailed class descriptions
+
+Example:
 
 🛠️ Technical Details
 Dependencies
-PyTorch 1.9+: Deep learning framework
 
-TorchVision: Computer vision transforms
+PyTorch 1.9+
 
-Flask: Web application framework
+TorchVision
 
-Pillow: Image processing
+Flask
 
-Scikit-learn: Metrics and evaluation
+Pillow
 
-Pandas: Data manipulation
+Scikit-learn
 
-Matplotlib/Seaborn: Visualization
+Pandas
+
+Matplotlib / Seaborn
 
 Data Augmentation
-Random Rotation (±10 degrees)
 
-Random Horizontal Flip (30% probability)
+Random Rotation (±10°)
+
+Random Horizontal Flip (30%)
 
 Color Jitter (brightness, contrast, saturation)
 
-Image Normalization (ImageNet statistics)
+Normalization (ImageNet mean/std)
 
 Training Configuration
-Batch Size: 16
-
-Learning Rate: 0.001
-
-Epochs: 30
-
-Optimizer: Adam
-
-Scheduler: Cosine Annealing
-
+Parameter	Value
+Batch Size	16
+Learning Rate	0.001
+Epochs	30
+Optimizer	Adam
+Scheduler	Cosine Annealing
 📈 Model Monitoring
-The training process is monitored with TensorBoard:
 
-Loss curves (training & validation)
+The training process is monitored via TensorBoard:
 
-Accuracy metrics
+Loss & Accuracy Curves
 
-Learning rate scheduling
+Learning Rate Scheduling
 
-Model graph visualization
+Model Graph Visualization
 
-Text summaries for each epoch
+Text Summaries per Epoch
+
+Example visualization:
 
 🔧 Customization
 Adding New Classes
+
 Update self.classes in data_preprocessor.py
 
 Modify CLASS_NAMES in web_demo.py and evaluate.py
@@ -203,33 +237,35 @@ Modify CLASS_NAMES in web_demo.py and evaluate.py
 Retrain the model with updated num_classes
 
 Model Architecture
-Modify model.py to experiment with:
 
-Different CNN architectures
+Modify model.py to experiment with:
 
 Additional layers
 
-Alternative normalization techniques
+BatchNorm/Dropout tuning
 
 Custom classifier heads
 
 🤝 Contributing
-Contributions are welcome! Please feel free to submit pull requests or open issues for:
 
-Bug fixes
+Contributions are welcome!
+Feel free to submit pull requests or open issues for:
 
-Performance improvements
+🐞 Bug fixes
 
-New features
+🚀 Performance improvements
 
-Documentation enhancements
+✨ New features
+
+🧾 Documentation updates
 
 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+This project is licensed under the MIT License — see the LICENSE file for details.
 
 👨‍💻 Author
+
 Your Name
+📂 GitHub: @your-username
 
-GitHub: @your-username
-
-Email: your.email@example.com
+📧 Email: your.email@example.com
